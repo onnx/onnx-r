@@ -4,8 +4,8 @@
 #' @name onnx
 NULL
 
-onnx <- NULL
-np <- NULL
+onnx <<- NULL
+np <<- NULL
 
 .onLoad <- function(libname, pkgname) {
   

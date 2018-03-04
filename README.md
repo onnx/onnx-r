@@ -19,6 +19,8 @@ We'll make use of the following functions for the examples:
 * a single `check()` method that can check whether a protobuf in a particular type is valid.
 
 ```r
+library(onnx)
+
 # Define a node protobuf and check whether it's valid
 node_def <- make_node("Relu", list("X"), list("Y"))
 check(node_def)
