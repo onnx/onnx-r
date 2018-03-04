@@ -25,10 +25,10 @@ make_attribute <- function(key, value, doc_string = NULL) {
 #' @export
 make_graph <- function(nodes, name, inputs, outputs, initializer = NULL, doc_string = NULL) {
   onnx$helper$make_graph(
-    nodes = nodes,
+    nodes = as.list(nodes),
     name = name,
-    inputs = inputs,
-    outputs = outputs,
+    inputs = as.list(inputs),
+    outputs = as.list(outputs),
     initializer = initializer,
     doc_string = doc_string
   )
@@ -47,8 +47,8 @@ make_graph <- function(nodes, name, inputs, outputs, initializer = NULL, doc_str
 make_node <- function(op_type, inputs, outputs, name = NULL, doc_string = NULL) {
   onnx$helper$make_node(
     op_type = op_type,
-    inputs = inputs,
-    outputs = outputs,
+    inputs = as.list(inputs),
+    outputs = as.list(outputs),
     name = name,
     doc_string = doc_string
   )
@@ -104,7 +104,7 @@ make_tensor_value_info <- function(name, elem_type, shape, doc_string = "") {
   onnx$helper$make_tensor_value_info(
     name = name,
     elem_type = elem_type,
-    shape = shape,
+    shape = as.list(shape),
     doc_string = doc_string
   )
 }
