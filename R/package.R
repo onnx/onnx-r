@@ -1,4 +1,4 @@
-#' ONNX in R
+#' R Interface to ONNX
 #' 
 #' @docType package
 #' @name onnx

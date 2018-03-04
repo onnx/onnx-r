@@ -5,7 +5,7 @@ source("helper-utils.R")
 library(reticulate)
 
 test_succeeds("onnx works", {
-  node_def <- make_node("Relu", c("X"), c("Y"))
+  node_def <- make_node("Relu", list("X"), list("Y"))
   expect_true(inherits(node_def, "onnx_pb2.NodeProto"))
   check(node_def)
   
