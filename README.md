@@ -13,7 +13,7 @@ devtools::install_github("terrytangyuan/onnx-r")
 
 ## Examples
 
-Main functionalities currently available are:
+We'll make use of the following functions for the examples:
 
 * `make_xxx()` to make different types of protobufs for attributes, nodes, graphs, and `tensor_value_info`s.
 * a single `check()` method that can check whether a protobuf in a particular type is valid.
