@@ -46,5 +46,6 @@ graph_proto <- make_graph(
     make_tensor_value_info('Y', onnx$TensorProto$FLOAT, list(1L))
   )
 )
+# Check whether the graph protobuf is valid
 check(graph_proto)
 ```
