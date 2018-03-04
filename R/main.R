@@ -15,6 +15,20 @@ onnx_load <- function(obj) {
   )
 }
 
+#' Loads a binary string that stores onnx model
+#' 
+#' @param a string object containing protobuf
+#' @return ONNX ModelProto object
+#'
+#' @export
+load_from_string <- function(s) {
+  if (!is.character(s)) 
+    stop("You must provide a string containing protobuf")
+  onnx$load_from_string(
+    s = s
+  )
+}
+
 #' Define an ONNX node
 #' 
 #' @param op_type op_type
