@@ -32,4 +32,6 @@ make_node(op_type, inputs, outputs, name = NULL, doc_string = NULL)
 }
 \description{
 Define an ONNX node
+
+Makes an NodeProto.
 }

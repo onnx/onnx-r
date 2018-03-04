@@ -34,6 +34,9 @@ make_graph <- function(nodes, name, inputs, outputs, initializer = NULL, doc_str
   )
 }
 
+
+#' Makes an NodeProto.
+#' 
 #' @param op_type op_type
 #' @param inputs inputs
 #' @param outputs outputs
@@ -76,8 +79,6 @@ make_tensor <- function(name, data_type, dims, vals, raw = FALSE) {
 
 #' Makes an AttributeProto based on the value type.
 #' 
-#' 
-#' 
 #' @param key key
 #' @param value value
 #' @param doc_string doc_string
@@ -92,8 +93,6 @@ make_attribute <- function(key, value, doc_string = NULL) {
 }
 
 #' Makes a TypeProto based on the data type and shape.
-#' 
-#' 
 #' 
 #' @param name name
 #' @param elem_type elem_type
