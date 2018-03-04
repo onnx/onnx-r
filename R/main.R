@@ -14,3 +14,22 @@ onnx_load <- function(obj) {
     obj = obj
   )
 }
+
+#' Define an ONNX node
+#' 
+#' @param op_type op_type
+#' @param inputs inputs
+#' @param outputs outputs
+#' @param name name
+#' @param doc_string doc_string
+#' 
+#' @export
+make_node <- function(op_type, inputs, outputs, name = NULL, doc_string = NULL) {
+  onnx$helper$make_node(
+    op_type = op_type,
+    inputs = inputs,
+    outputs = outputs,
+    name = name,
+    doc_string = doc_string
+  )
+}

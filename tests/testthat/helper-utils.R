@@ -1,12 +1,13 @@
 # Util Functions
 
-have_onnx <- function() {
-  reticulate::py_module_available("onnx")
+skip_if_no_onnx <- function() {
+  if (!reticulate::py_module_available("onnx"))
+    skip("onnx not available for testing")
 }
 
-skip_if_no_onnx <- function() {
-  if (!have_onnx())
-    skip("onnx not available for testing")
+skip_if_no_onnx_tf <- function() {
+  if (!reticulate::py_module_available("onnx_tf"))
+    skip("onnx_tf not available for testing")
 }
 
 test_succeeds <- function(desc, expr) {

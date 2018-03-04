@@ -2,7 +2,9 @@ Package: onnx
 Type: Package
 Title: R Interface to 'ONNX'
 Version: 0.0.0.9000
-Authors@R: person("Yuan", "Tang", role = c("aut", "cre"), email = "terrytangyuan@gmail.com")
+Authors@R: c(
+  person("Yuan", "Tang", role = c("aut", "cre"), email = "terrytangyuan@gmail.com"),
+  person("ONNX Developers", role = c("aut", "cph")))
 Description: R Interface to 'ONNX' - Open Neural Network Exchange
 License: Apache License 2.0
 URL: https://github.com/onnx
