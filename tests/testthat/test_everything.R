@@ -45,7 +45,7 @@ test_succeeds("onnx_tf works", {
   expect_equal(output[['Y']], structure(c(0, 0.100000001490116), .Dim = 2L))
   
   ## Reference: https://github.com/onnx/tutorials/blob/master/tutorials/OnnxTensorflowImport.ipynb
-  model <- onnx_load("inst/super_resolution.onnx")
+  model <- load_from_file("inst/super_resolution.onnx")
   expect_true(inherits(model, "onnx_pb2.ModelProto"))
   check(model)
   tf_rep <- tf_backend$prepare(model)

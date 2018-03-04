@@ -6,7 +6,7 @@
 #' @return ONNX ModelProto object
 #' 
 #' @export
-onnx_load <- function(obj) {
+load_from_file <- function(obj) {
   if (is.character(obj)) {
     obj <- normalizePath(obj)
   }
@@ -26,24 +26,5 @@ load_from_string <- function(s) {
     stop("You must provide a string containing protobuf")
   onnx$load_from_string(
     s = s
-  )
-}
-
-#' Define an ONNX node
-#' 
-#' @param op_type op_type
-#' @param inputs inputs
-#' @param outputs outputs
-#' @param name name
-#' @param doc_string doc_string
-#' 
-#' @export
-make_node <- function(op_type, inputs, outputs, name = NULL, doc_string = NULL) {
-  onnx$helper$make_node(
-    op_type = op_type,
-    inputs = inputs,
-    outputs = outputs,
-    name = name,
-    doc_string = doc_string
   )
 }

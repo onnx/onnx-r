@@ -4,7 +4,7 @@
 \name{onnx}
 \alias{onnx}
 \alias{onnx-package}
-\title{ONNX in R}
+\title{R Interface to ONNX}
 \description{
-ONNX in R
+R Interface to ONNX
 }
