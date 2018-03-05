@@ -1,12 +1,17 @@
 Package: onnx
 Type: Package
 Title: R Interface to 'ONNX'
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: c(
   person("Yuan", "Tang", role = c("aut", "cre"), email = "terrytangyuan@gmail.com"),
-  person("ONNX Authors", role = c("aut", "cph")))
-Description: R Interface to 'ONNX' - Open Neural Network Exchange
-License: Apache License 2.0
+  person("ONNX Authors", role = c("aut", "cph")),
+  person("Facebook, Inc.", role = c("cph")),
+  person("Microsoft Corporation", role = c("cph")))
+Description: R Interface to 'ONNX' - Open Neural Network Exchange <https://onnx.ai/>. 
+             'ONNX' provides an open source format for machine learning models. 
+             It defines an extensible computation graph model, as well as definitions
+             of built-in operators and standard data types.
+License: MIT License + file LICENSE
 URL: https://github.com/terrytangyuan/onnx-r
 BugReports: https://github.com/terrytangyuan/onnx-r
 Encoding: UTF-8

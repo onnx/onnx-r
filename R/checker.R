@@ -1,5 +1,5 @@
 #' @export
-check <- function(object) {
+check <- function(proto, ir_version) {
   UseMethod("check")
 }
 

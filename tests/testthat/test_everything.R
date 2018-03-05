@@ -45,6 +45,7 @@ test_succeeds("onnx_tf works", {
   expect_equal(output[['Y']], structure(c(0, 0.100000001490116), .Dim = 2L))
   
   ## Reference: https://github.com/onnx/tutorials/blob/master/tutorials/OnnxTensorflowImport.ipynb
+
   model <- load_from_file("inst/super_resolution.onnx")
   expect_true(inherits(model, "onnx_pb2.ModelProto"))
   check(model)
@@ -52,11 +53,8 @@ test_succeeds("onnx_tf works", {
   tf_rep$predict_net
   tf_rep$input_dict
   tf_rep$uninitialized
-  
-  # Next, we will prepare an input image for inference. The steps below downloads
-  # an example image, resizes it to the model's expected input shape, and finally
-  # converts it into a numpy array.
-  
+  expect_equal(length(names(tf_rep)), 4)
+
   if (py_module_available("numpy") && py_module_available("PIL")) {
     utils <- py_run_string('
 def preprocess_image(img_path):
@@ -71,5 +69,4 @@ def preprocess_image(img_path):
     big_doggy <- tf_rep$run(utils$preprocess_image("inst/super-res-input.jpg"))
     expect_equal(dim(big_doggy[['_0']]), c(1, 1, 672, 672))
   }
-  
 })
