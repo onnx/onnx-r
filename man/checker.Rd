@@ -29,3 +29,14 @@ check(proto, ir_version)
 \description{
 This method checks whether a protobuf in a particular type is valid.
 }
+\examples{
+\dontrun{
+
+library(onnx)
+
+# Define a node protobuf and check whether it's valid
+node_def <- make_node("Relu", list("X"), list("Y"))
+check(node_def)
+
+}
+}

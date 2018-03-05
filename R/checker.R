@@ -4,6 +4,16 @@
 #' @param proto The proto
 #' @param ir_version The version of the proto
 #' 
+#' @examples 
+#' \dontrun{
+#' 
+#' library(onnx)
+#' 
+#' # Define a node protobuf and check whether it's valid
+#' node_def <- make_node("Relu", list("X"), list("Y"))
+#' check(node_def)
+#' 
+#' }
 #' @export
 #' @rdname checker
 check <- function(proto, ir_version) {
