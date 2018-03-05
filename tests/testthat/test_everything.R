@@ -58,16 +58,17 @@ test_succeeds("onnx_tf works", {
   # converts it into a numpy array.
   
   if (py_module_available("numpy") && py_module_available("PIL")) {
-    result <- py_run_string('
-import numpy as np
-from PIL import Image
-img = Image.open("inst/super-res-input.jpg").resize((224, 224))
-img_ycbcr = img.convert("YCbCr")
-img_y, img_cb, img_cr = img_ycbcr.split()
-doggy_y = np.asarray(img_y, dtype=np.float32)[np.newaxis, np.newaxis, :, :]')
+    utils <- py_run_string('
+def preprocess_image(img_path):
+  import numpy as np
+  from PIL import Image
+  img = Image.open(img_path).resize((224, 224))
+  img_ycbcr = img.convert("YCbCr")
+  img_y, img_cb, img_cr = img_ycbcr.split()
+  return np.asarray(img_y, dtype=np.float32)[np.newaxis, np.newaxis, :, :]')
     
     # Run the network!
-    big_doggy <- tf_rep$run(result$doggy_y)
+    big_doggy <- tf_rep$run(utils$preprocess_image("inst/super-res-input.jpg"))
     expect_equal(dim(big_doggy[['_0']]), c(1, 1, 672, 672))
   }
   
