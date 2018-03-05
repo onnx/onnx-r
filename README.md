@@ -16,7 +16,8 @@ devtools::install_github("terrytangyuan/onnx-r")
 We'll make use of the following functions for the examples:
 
 * `make_xxx()` to make different types of protobufs for attributes, nodes, graphs, etc.
-* a single `check()` method that can check whether a protobuf in a particular type is valid.
+* `check()` method that can check whether a protobuf in a particular type is valid.
+* `print_readable()` method that can print out the human-readable representation of the proto object.
 
 Define a node protobuf and check whether it's valid:
 
@@ -72,6 +73,28 @@ graph_def <- make_graph(
 check(graph_def)
 ```
 
+You can use `print_readable()` to print out the human-readable representation of 
+the graph definition:
+
+```r
+> print_readable(graph_def)
+graph MLP (
+  %X[FLOAT, 1]
+  %W1[FLOAT, 1]
+  %B1[FLOAT, 1]
+  %W2[FLOAT, 1]
+  %B2[FLOAT, 1]
+) {
+  %H1 = FC(%X, %W1, %B1)
+  %R1 = Relu(%H1)
+  %Y = FC(%R1, %W2, %B2)
+  return %Y
+}
+```
+
+Or simply print it out to see the detailed graph definition containing 
+nodes, inputs, and outputs (truncated below):
+
 ```r
 > graph_def
 node {
@@ -82,16 +105,7 @@ node {
   op_type: "FC"
 }
 node {
-  input: "H1"
-  output: "R1"
-  op_type: "Relu"
-}
-node {
-  input: "R1"
-  input: "W2"
-  input: "B2"
-  output: "Y"
-  op_type: "FC"
+  ...
 }
 name: "MLP"
 input {
@@ -108,56 +122,7 @@ input {
   }
 }
 input {
-  name: "W1"
-  type {
-    tensor_type {
-      elem_type: FLOAT
-      shape {
-        dim {
-          dim_value: 1
-        }
-      }
-    }
-  }
-}
-input {
-  name: "B1"
-  type {
-    tensor_type {
-      elem_type: FLOAT
-      shape {
-        dim {
-          dim_value: 1
-        }
-      }
-    }
-  }
-}
-input {
-  name: "W2"
-  type {
-    tensor_type {
-      elem_type: FLOAT
-      shape {
-        dim {
-          dim_value: 1
-        }
-      }
-    }
-  }
-}
-input {
-  name: "B2"
-  type {
-    tensor_type {
-      elem_type: FLOAT
-      shape {
-        dim {
-          dim_value: 1
-        }
-      }
-    }
-  }
+  ...
 }
 output {
   name: "Y"
