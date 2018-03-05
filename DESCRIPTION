@@ -23,6 +23,4 @@ Imports:
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.0.1
 Suggests:
-    testthat,
-    knitr
-VignetteBuilder: knitr
+    testthat
