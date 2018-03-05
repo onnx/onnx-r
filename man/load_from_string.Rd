@@ -7,7 +7,7 @@
 load_from_string(s)
 }
 \arguments{
-\item{a}{string object containing protobuf}
+\item{s}{string object containing protobuf}
 }
 \value{
 ONNX ModelProto object

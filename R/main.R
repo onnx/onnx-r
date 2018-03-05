@@ -17,7 +17,8 @@ load_from_file <- function(obj) {
 
 #' Loads a binary string that stores onnx model
 #' 
-#' @param a string object containing protobuf
+#' @param s string object containing protobuf
+#' 
 #' @return ONNX ModelProto object
 #'
 #' @export

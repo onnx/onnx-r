@@ -1,10 +1,31 @@
-#' Makes an AttributeProto based on the value type.
+#' Make Different Types of Protos
 #' 
-#' @param key key
-#' @param value value
-#' @param doc_string doc_string
+#' This includes AttributeProto, GraphProto, NodeProto, TensorProto,
+#' TensorValueInfoProto, etc.
 #' 
 #' @export
+#' @rdname maker
+
+#' @param key The key
+#' @param value The value
+#' @param doc_string The doc_string
+#' @param nodes The nodes
+#' @param name The name
+#' @param inputs The inputs
+#' @param outputs The outputs
+#' @param initializer The initializer
+#' @param op_type The op type
+#' @param data_type The data type
+#' @param dims The dimensions
+#' @param vals The values
+#' @param raw If this is `FALSE``, this function will choose the corresponding proto field to
+#' store the values based on `data_type`. If raw is `TRUE`, use "raw_data" proto
+#' field to store the values, and values should be of type bytes in this case.
+#' @param elem_type The element type, e.g. `onnx$TensorProto$FLOAT`
+#' @param shape The shape
+#' 
+#' @export
+#' @rdname maker
 make_attribute <- function(key, value, doc_string = NULL) {
   onnx$helper$make_attribute(
     key = key,
@@ -13,16 +34,8 @@ make_attribute <- function(key, value, doc_string = NULL) {
   )
 }
 
-#' Makes an GraphProto.
-#' 
-#' @param nodes nodes
-#' @param name name
-#' @param inputs inputs
-#' @param outputs outputs
-#' @param initializer initializer
-#' @param doc_string doc_string
-#' 
 #' @export
+#' @rdname maker
 make_graph <- function(nodes, name, inputs, outputs, initializer = NULL, doc_string = NULL) {
   onnx$helper$make_graph(
     nodes = as.list(nodes),
@@ -34,16 +47,8 @@ make_graph <- function(nodes, name, inputs, outputs, initializer = NULL, doc_str
   )
 }
 
-
-#' Makes an NodeProto.
-#' 
-#' @param op_type op_type
-#' @param inputs inputs
-#' @param outputs outputs
-#' @param name name
-#' @param doc_string doc_string
-#' 
 #' @export
+#' @rdname maker
 make_node <- function(op_type, inputs, outputs, name = NULL, doc_string = NULL) {
   onnx$helper$make_node(
     op_type = op_type,
@@ -54,19 +59,8 @@ make_node <- function(op_type, inputs, outputs, name = NULL, doc_string = NULL) 
   )
 }
 
-#' Make a TensorProto with specified arguments.
-#'
-#' If raw is FALSE, this function will choose the corresponding proto field to
-#' store the values based on data_type. If raw is TRUE, use "raw_data" proto
-#' field to store the values, and values should be of type bytes in this case.
-#'
-#' @param name name
-#' @param data_type data_type
-#' @param dims dims
-#' @param vals vals
-#' @param raw raw
-#'
 #' @export
+#' @rdname maker
 make_tensor <- function(name, data_type, dims, vals, raw = FALSE) {
   onnx$helper$make_tensor(
     name = name,
@@ -77,29 +71,8 @@ make_tensor <- function(name, data_type, dims, vals, raw = FALSE) {
   )
 }
 
-#' Makes an AttributeProto based on the value type.
-#' 
-#' @param key key
-#' @param value value
-#' @param doc_string doc_string
-#' 
 #' @export
-make_attribute <- function(key, value, doc_string = NULL) {
-  onnx$helper$make_attribute(
-    key = key,
-    value = value,
-    doc_string = doc_string
-  )
-}
-
-#' Makes a TypeProto based on the data type and shape.
-#' 
-#' @param name name
-#' @param elem_type elem_type
-#' @param shape shape
-#' @param doc_string doc_string
-#' 
-#' @export
+#' @rdname maker
 make_tensor_value_info <- function(name, elem_type, shape, doc_string = "") {
   onnx$helper$make_tensor_value_info(
     name = name,

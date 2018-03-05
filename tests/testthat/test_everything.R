@@ -36,6 +36,8 @@ test_succeeds("onnx works", {
 })
 
 test_succeeds("onnx_tf works", {
+  if (length(list.files(pattern = ".onnx", recursive = TRUE)) == 0)
+    skip(".onnx file not available for testing")
   skip_if_no_onnx_tf()
   tf_backend <- import("onnx_tf.backend")
 
