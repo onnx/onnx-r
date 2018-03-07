@@ -1,3 +1,5 @@
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/onnx)](https://cran.r-project.org/package=onnx)
+
 # ONNX-R
 
 R interface to [ONNX](https://github.com/onnx). This package is under heavy development.
