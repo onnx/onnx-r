@@ -21,7 +21,7 @@
 <![endif]-->
 </head>
 <body>
-    <div class="container template-home">
+    <div class="container template-vignette">
       <header><div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -70,42 +70,52 @@
 
       
       </header><div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9">
     
 
-<div id="onnx-r" class="section level1">
+    
+    
+<div class="contents">
+<div id="r-interface-to-onnx" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#onnx-r" class="anchor"></a>ONNX-R</h1></div>
-<p>R interface to <a href="https://github.com/onnx">ONNX</a>. This package is under heavy development.</p>
+<a href="#r-interface-to-onnx" class="anchor"></a>R Interface to ONNX</h1></div>
+
+<div id="overview" class="section level2">
+<h2 class="hasAnchor">
+<a href="#overview" class="anchor"></a>Overview</h2>
+<p>This is the R Interface to <a href="https://onnx.ai/">Open Neural Network Exchange (ONNX)</a> - a standard format for models built using different frameworks (e.g. TensorFlow, MXNet, PyTorch, CNTK, etc). It defines an extensible computation graph model, as well as definitions of built-in operators and standard data types. Models trained in one framework can be easily transferred to another framework for inference. This open source format enables the interoperability between different frameworks and streamlining the path from research to production will increase the speed of innovation in the AI community.</p>
+</div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <ul>
-<li>Follow instructions <a href="https://github.com/onnx/onnx#installation">here</a> to install the onnx Python package.</li>
-<li>Install the development version of the R package via</li>
+<li>First, follow instructions <a href="https://github.com/onnx/onnx#installation">here</a> to install the onnx Python package.</li>
+<li>Then install the development version of the R package on Github via the following:</li>
 </ul>
-<pre><code><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">devtools::install_github("onnx/onnx-r")</a></code></pre>
+<pre><code>if (!require(devtools)) install.packages("devtools")
+devtools::install_github("onnx/onnx-r")</code></pre>
 </div>
 <div id="tutorials" class="section level2">
 <h2 class="hasAnchor">
 <a href="#tutorials" class="anchor"></a>Tutorials</h2>
 <ul>
-<li><a href="https://github.com/onnx/onnx-r/blob/master/vignettes/protobufs.Rmd">Creating ONNX Protobuf</a></li>
-<li><a href="https://github.com/onnx/onnx-r/blob/master/vignettes/onnx_model_zoo.Rmd">Load and Run ONNX Model Using a Backend</a></li>
+<li><a href="articles/protobufs.html">Creating ONNX Protobuf</a></li>
+<li><a href="articles/onnx_model_zoo.html">Load and Run ONNX Model Using a Backend</a></li>
 </ul>
 </div>
 </div>
-
+</div>
   </div>
 
-  <div class="col-md-3" id="sidebar">
-    <h2>Links</h2>
+  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+    <h2 class="hasAnchor">
+<a href="#sidebar" class="anchor"></a>Links</h2>
 <ul class="list-unstyled">
 <li>Download from CRAN at <br><a href="https://cran.r-project.org/package=onnx">https://​cran.r-project.org/​package=onnx</a>
 </li>
 <li>Browse source code at <br><a href="https://github.com/onnx/onnx-r">https://​github.com/​onnx/​onnx-r</a>
 </li>
-<li>Report a bug at <br><a href="https://github.com/onnx/onnx-r">https://​github.com/​onnx/​onnx-r</a>
+<li>Report a bug at <br><a href="https://github.com/onnx/onnx-r/issues">https://​github.com/​onnx/​onnx-r/​issues</a>
 </li>
 </ul>
 <h2>License</h2>
@@ -120,6 +130,7 @@
 <li><a href="https://cran.r-project.org/package=onnx"><img src="http://www.r-pkg.org/badges/version/onnx" alt="CRAN_Status_Badge"></a></li>
 </ul>
 </div>
+
 </div>
 
 

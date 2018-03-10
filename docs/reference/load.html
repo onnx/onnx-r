@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>/Users/terrytangyuan/personalRepos/onnx-r/README.md • onnx</title>
+<title>Loads a binary protobuf that stores onnx model — load_from_file • onnx</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -22,12 +22,16 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
-<link href="pkgdown.css" rel="stylesheet">
-<script src="jquery.sticky-kit.min.js"></script>
-<script src="pkgdown.js"></script>
+<link href="../pkgdown.css" rel="stylesheet">
+<script src="../jquery.sticky-kit.min.js"></script>
+<script src="../pkgdown.js"></script>
   
   
-<meta property="og:title" content="/Users/terrytangyuan/personalRepos/onnx-r/README.md" />
+<meta property="og:title" content="Loads a binary protobuf that stores onnx model — load_from_file" />
+
+<meta property="og:description" content="Loads a binary protobuf that stores onnx model
+Loads a binary string that stores onnx model" />
+<meta name="twitter:card" content="summary" />
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -40,7 +44,7 @@
   </head>
 
   <body>
-    <div class="container template-title-body">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
@@ -50,7 +54,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">onnx</a>
+      <a class="navbar-brand" href="../index.html">onnx</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -62,15 +66,15 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="articles/protobufs.html">Creating ONNX Protobuf</a>
+      <a href="../articles/protobufs.html">Creating ONNX Protobuf</a>
     </li>
     <li>
-      <a href="articles/onnx_model_zoo.html">Load and Run ONNX Model Using a Backend</a>
+      <a href="../articles/onnx_model_zoo.html">Load and Run ONNX Model Using a Backend</a>
     </li>
   </ul>
 </li>
 <li>
-  <a href="reference/index.html">API Reference</a>
+  <a href="../reference/index.html">API Reference</a>
 </li>
       </ul>
       
@@ -90,24 +94,51 @@
       </header>
 
       <div class="row">
-  <div class="contents col-md-12">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>/Users/terrytangyuan/personalRepos/onnx-r/README.md</h1>
+    <h1>Loads a binary protobuf that stores onnx model</h1>
     </div>
 
+    
+    <p>Loads a binary protobuf that stores onnx model</p>
+<p>Loads a binary string that stores onnx model</p>
+    
 
-<p><a href="https://cran.r-project.org/package=onnx"><img src="http://www.r-pkg.org/badges/version/onnx" alt="CRAN_Status_Badge"></a></p>
-<div id="r-interface-to-open-neural-network-exchange-onnx" class="section level1">
-<h1 class="hasAnchor">
-<a href="#r-interface-to-open-neural-network-exchange-onnx" class="anchor"></a>R Interface to Open Neural Network Exchange (ONNX)</h1>
-<p>R interface to R Interface to <a href="https://github.com/onnx">Open Neural Network Exchange (ONNX)</a>. Please visit <a href="http://onnx.ai/onnx-r/docs/">here</a> for tutorials and API reference.</p>
-</div>
+    <pre class="usage"><span class='fu'><a href='load_from_file.html'>load_from_file</a></span>(<span class='no'>obj</span>)
 
+<span class='fu'><a href='load_from_string.html'>load_from_string</a></span>(<span class='no'>s</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>obj</th>
+      <td><p>a file-like object (has "read" function)
+or a string containing a file name</p></td>
+    </tr>
+    <tr>
+      <th>s</th>
+      <td><p>string object containing protobuf</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>ONNX ModelProto object</p>
+<p>ONNX ModelProto object</p>
+    
 
   </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#value">Value</a></li>
+          </ul>
 
+  </div>
 </div>
-
 
       <footer>
       <div class="copyright">

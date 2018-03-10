@@ -1,0 +1,40 @@
+---
+title: "R Interface to Open Neural Network Exchange (ONNX)"
+output: 
+  rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Creating ONNX Protobuf}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+type: docs
+repo: https://github.com/onnx/onnx-r
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+# R Interface to ONNX
+
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/onnx)](https://cran.r-project.org/package=onnx)
+
+## Overview
+
+This is the R Interface to [Open Neural Network Exchange (ONNX)](https://onnx.ai/) - a standard format for models built using different frameworks (e.g. TensorFlow, MXNet, PyTorch, CNTK, etc). It defines an extensible computation graph model, as well as definitions of built-in operators and standard data types. Models trained in one framework can be easily transferred to another framework for inference. This open source format enables the interoperability between different frameworks and streamlining the path from research to production will increase the speed of innovation in the AI community.
+
+## Installation
+
+* First, follow instructions [here](https://github.com/onnx/onnx#installation) to install the onnx Python package.
+* Then install the development version of the R package on Github via the following:
+
+```
+if (!require(devtools)) install.packages("devtools")
+devtools::install_github("onnx/onnx-r")
+```
+
+## Tutorials
+
+* [Creating ONNX Protobuf](articles/protobufs.html)
+* [Load and Run ONNX Model Using a Backend](articles/onnx_model_zoo.html)

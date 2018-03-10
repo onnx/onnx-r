@@ -12,7 +12,7 @@ Description: R Interface to 'ONNX' - Open Neural Network Exchange <https://onnx.
              of built-in operators and standard data types.
 License: MIT License + file LICENSE
 URL: https://github.com/onnx/onnx-r
-BugReports: https://github.com/onnx/onnx-r
+BugReports: https://github.com/onnx/onnx-r/issues
 Encoding: UTF-8
 LazyData: true
 Depends:
