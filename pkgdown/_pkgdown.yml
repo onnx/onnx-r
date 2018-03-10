@@ -1,6 +1,6 @@
 template:
   params:
-    bootswatch: cosmo
+    bootswatch: flatly
 
 navbar:
   title: "onnx"
@@ -12,6 +12,8 @@ navbar:
         href: articles/protobufs.html
       - text: "Load and Run ONNX Model Using a Backend"
         href: articles/onnx_model_zoo.html
+    - text: "News"
+      href: news/index.html
     - text: "API Reference"
       href: reference/index.html
   right:
