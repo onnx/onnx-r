@@ -10,7 +10,7 @@ navbar:
       menu:
       - text: "Creating ONNX Protobuf"
         href: articles/protobufs.html
-      - text: "Load and Run ONNX Model Using a Backend"
+      - text: "Load and Run an ONNX Model"
         href: articles/onnx_model_zoo.html
     - text: "News"
       href: news/index.html

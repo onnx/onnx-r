@@ -29,4 +29,4 @@ devtools::install_github("onnx/onnx-r")
 ## Tutorials
 
 * [Creating ONNX Protobuf](articles/protobufs.html)
-* [Load and Run ONNX Model Using a Backend](articles/onnx_model_zoo.html)
+* [Load and Run an ONNX Model](articles/onnx_model_zoo.html)
