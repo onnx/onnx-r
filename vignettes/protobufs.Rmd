@@ -1,9 +1,9 @@
 ---
-title: "Basics"
+title: "Creating ONNX Protobuf"
 output: 
   rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Basics}
+  %\VignetteIndexEntry{Creating ONNX Protobuf}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 type: docs

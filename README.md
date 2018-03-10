@@ -15,5 +15,5 @@ devtools::install_github("onnx/onnx-r")
 
 ## Tutorials
 
-* [Basics of ONNX](https://github.com/onnx/onnx-r/blob/master/vignettes/basics.Rmd)
+* [Creating ONNX Protobuf](https://github.com/onnx/onnx-r/blob/master/vignettes/protobufs.Rmd)
 * [Load and Run ONNX Model Using a Backend](https://github.com/onnx/onnx-r/blob/master/vignettes/onnx_model_zoo.Rmd)
