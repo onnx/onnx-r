@@ -10,7 +10,7 @@ R interface to [ONNX](https://github.com/onnx). This package is under heavy deve
 * Install the development version of the R package via
 
 ```
-devtools::install_github("terrytangyuan/onnx-r")
+devtools::install_github("onnx/onnx-r")
 ```
 
 ## Examples
