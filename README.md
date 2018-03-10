@@ -2,4 +2,4 @@
 
 # R Interface to ONNX
 
-Please visit [here](http://onnx.ai/onnx-r/docs/) for tutorials and API reference.
+Please visit [here](http://onnx.ai/onnx-r) for tutorials and API reference.
