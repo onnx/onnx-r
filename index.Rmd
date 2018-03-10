@@ -1,13 +1,5 @@
 ---
-title: "R Interface to Open Neural Network Exchange (ONNX)"
-output: 
-  rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{Creating ONNX Protobuf}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
-type: docs
-repo: https://github.com/onnx/onnx-r
+output: html_document
 ---
 
 
