@@ -1,0 +1,33 @@
+template:
+  params:
+    bootswatch: cosmo
+
+navbar:
+  title: "onnx"
+  type: inverse
+  left:
+    - text: "Tutorials"
+      menu:
+      - text: "Creating ONNX Protobuf"
+        href: articles/protobufs.html
+      - text: "Load and Run ONNX Model Using a Backend"
+        href: articles/onnx_model_zoo.html
+    - text: "API Reference"
+      href: reference/index.html
+  right:
+   - icon: fa-github
+     href: https://github.com/onnx/onnx-r
+
+reference:
+
+  - title: "Reference"
+    contents:
+      - check
+      - make_attribute
+      - make_graph
+      - make_node
+      - make_tensor
+      - make_tensor_value_info
+      - load_from_file
+      - load_from_string
+      - print_readable
