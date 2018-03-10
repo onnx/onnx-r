@@ -88,6 +88,9 @@
 <li>
 <code><a href="../reference/print_readable.html">print_readable()</a></code> method that can print out the human-readable representation of the proto object.</li>
 </ul>
+<div id="create-node-protobuf" class="section level2">
+<h2 class="hasAnchor">
+<a href="#create-node-protobuf" class="anchor"></a>Create Node Protobuf</h2>
 <p>Define a node protobuf and check whether it’s valid:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(onnx)
 
@@ -97,6 +100,10 @@ node_def &lt;-<span class="st"> </span><span class="kw"><a href="../reference/ma
 input<span class="op">:</span><span class="st"> "X"</span>
 output<span class="op">:</span><span class="st"> "Y"</span>
 op_type<span class="op">:</span><span class="st"> "Relu"</span></code></pre></div>
+</div>
+<div id="create-attribute-protobuf" class="section level2">
+<h2 class="hasAnchor">
+<a href="#create-attribute-protobuf" class="anchor"></a>Create Attribute Protobuf</h2>
 <p>Define an attribute protobuf and check whether it’s valid:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">attr_def &lt;-<span class="st"> </span><span class="kw"><a href="../reference/maker.html">make_attribute</a></span>(<span class="st">"this_is_an_int"</span>, 123L)
 <span class="kw"><a href="../reference/checker.html">check</a></span>(attr_def)</code></pre></div>
@@ -104,6 +111,10 @@ op_type<span class="op">:</span><span class="st"> "Relu"</span></code></pre></di
 name<span class="op">:</span><span class="st"> "this_is_an_int"</span>
 i<span class="op">:</span><span class="st"> </span><span class="dv">123</span>
 type<span class="op">:</span><span class="st"> </span>INT</code></pre></div>
+</div>
+<div id="create-graph-protobuf" class="section level2">
+<h2 class="hasAnchor">
+<a href="#create-graph-protobuf" class="anchor"></a>Create Graph Protobuf</h2>
 <p>Define a graph protobuf and check whether it’s valid:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">graph_def &lt;-<span class="st"> </span><span class="kw"><a href="../reference/maker.html">make_graph</a></span>(
   <span class="dt">nodes =</span> <span class="kw">list</span>(
@@ -138,7 +149,7 @@ graph <span class="kw">MLP</span> (
   <span class="op">%Y = FC(%</span>R1, <span class="op">%W2, %</span>B2<span class="er">)</span>
   return %Y
 }</code></pre></div>
-<p>Or simply print it out to see the detailed graph definition containing nodes, inputs, and outputs (truncated below):</p>
+<p>Or simply print it out to see the detailed graph definition containing nodes, inputs, and outputs:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="op">&gt;</span><span class="st"> </span>graph_def
 node {
   input<span class="op">:</span><span class="st"> "X"</span>
@@ -148,7 +159,16 @@ node {
   op_type<span class="op">:</span><span class="st"> "FC"</span>
 }
 node {
-  ...
+  input<span class="op">:</span><span class="st"> "H1"</span>
+  output<span class="op">:</span><span class="st"> "R1"</span>
+  op_type<span class="op">:</span><span class="st"> "Relu"</span>
+}
+node {
+  input<span class="op">:</span><span class="st"> "R1"</span>
+  input<span class="op">:</span><span class="st"> "W2"</span>
+  input<span class="op">:</span><span class="st"> "B2"</span>
+  output<span class="op">:</span><span class="st"> "Y"</span>
+  op_type<span class="op">:</span><span class="st"> "FC"</span>
 }
 name<span class="op">:</span><span class="st"> "MLP"</span>
 input {
@@ -165,7 +185,56 @@ input {
   }
 }
 input {
-  ...
+  name<span class="op">:</span><span class="st"> "W1"</span>
+  type {
+    tensor_type {
+      elem_type<span class="op">:</span><span class="st"> </span>FLOAT
+      shape {
+        dim {
+          dim_value<span class="op">:</span><span class="st"> </span><span class="dv">1</span>
+        }
+      }
+    }
+  }
+}
+input {
+  name<span class="op">:</span><span class="st"> "B1"</span>
+  type {
+    tensor_type {
+      elem_type<span class="op">:</span><span class="st"> </span>FLOAT
+      shape {
+        dim {
+          dim_value<span class="op">:</span><span class="st"> </span><span class="dv">1</span>
+        }
+      }
+    }
+  }
+}
+input {
+  name<span class="op">:</span><span class="st"> "W2"</span>
+  type {
+    tensor_type {
+      elem_type<span class="op">:</span><span class="st"> </span>FLOAT
+      shape {
+        dim {
+          dim_value<span class="op">:</span><span class="st"> </span><span class="dv">1</span>
+        }
+      }
+    }
+  }
+}
+input {
+  name<span class="op">:</span><span class="st"> "B2"</span>
+  type {
+    tensor_type {
+      elem_type<span class="op">:</span><span class="st"> </span>FLOAT
+      shape {
+        dim {
+          dim_value<span class="op">:</span><span class="st"> </span><span class="dv">1</span>
+        }
+      }
+    }
+  }
 }
 output {
   name<span class="op">:</span><span class="st"> "Y"</span>
@@ -181,9 +250,19 @@ output {
   }
 }</code></pre></div>
 </div>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+        <div id="tocnav">
+      <h2 class="hasAnchor">
+<a href="#tocnav" class="anchor"></a>Contents</h2>
+      <ul class="nav nav-pills nav-stacked">
+<li><a href="#create-node-protobuf">Create Node Protobuf</a></li>
+      <li><a href="#create-attribute-protobuf">Create Attribute Protobuf</a></li>
+      <li><a href="#create-graph-protobuf">Create Graph Protobuf</a></li>
+      </ul>
+</div>
       </div>
 
 </div>

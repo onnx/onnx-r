@@ -22,6 +22,8 @@ In this short tutorial, we'll make use of the following functions for the exampl
 * `check()` method that can check whether a protobuf in a particular type is valid.
 * `print_readable()` method that can print out the human-readable representation of the proto object.
 
+## Create Node Protobuf
+
 Define a node protobuf and check whether it's valid:
 
 ```{r eval=FALSE}
@@ -38,6 +40,8 @@ output: "Y"
 op_type: "Relu"
 ```
 
+## Create Attribute Protobuf
+
 Define an attribute protobuf and check whether it's valid:
 
 ```{r eval=FALSE}
@@ -51,6 +55,8 @@ name: "this_is_an_int"
 i: 123
 type: INT
 ```
+
+## Create Graph Protobuf
 
 Define a graph protobuf and check whether it's valid:
 
@@ -96,7 +102,7 @@ graph MLP (
 ```
 
 Or simply print it out to see the detailed graph definition containing 
-nodes, inputs, and outputs (truncated below):
+nodes, inputs, and outputs:
 
 ```{r eval=FALSE}
 > graph_def
@@ -108,7 +114,16 @@ node {
   op_type: "FC"
 }
 node {
-  ...
+  input: "H1"
+  output: "R1"
+  op_type: "Relu"
+}
+node {
+  input: "R1"
+  input: "W2"
+  input: "B2"
+  output: "Y"
+  op_type: "FC"
 }
 name: "MLP"
 input {
@@ -125,7 +140,56 @@ input {
   }
 }
 input {
-  ...
+  name: "W1"
+  type {
+    tensor_type {
+      elem_type: FLOAT
+      shape {
+        dim {
+          dim_value: 1
+        }
+      }
+    }
+  }
+}
+input {
+  name: "B1"
+  type {
+    tensor_type {
+      elem_type: FLOAT
+      shape {
+        dim {
+          dim_value: 1
+        }
+      }
+    }
+  }
+}
+input {
+  name: "W2"
+  type {
+    tensor_type {
+      elem_type: FLOAT
+      shape {
+        dim {
+          dim_value: 1
+        }
+      }
+    }
+  }
+}
+input {
+  name: "B2"
+  type {
+    tensor_type {
+      elem_type: FLOAT
+      shape {
+        dim {
+          dim_value: 1
+        }
+      }
+    }
+  }
 }
 output {
   name: "Y"

@@ -17,8 +17,6 @@ knitr::opts_chunk$set(eval = FALSE)
 ```
 
 
-## Overview
-
 [onnx/models](https://github.com/onnx/models) is a repository for storing the pre-trained ONNX models. Every ONNX backend should support running these models out of the box. After downloading and extracting the tarball of each model, there should be:
 
 * A protobuf file model.onnx which is the serialized ONNX model.
