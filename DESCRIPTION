@@ -4,7 +4,6 @@ Title: R Interface to 'ONNX'
 Version: 0.0.1.9000
 Authors@R: c(
   person("Yuan", "Tang", role = c("aut", "cre"), email = "terrytangyuan@gmail.com"),
-  person("ONNX Authors", role = c("aut", "cph")),
   person("Facebook, Inc.", role = c("cph")),
   person("Microsoft Corporation", role = c("cph")))
 Description: R Interface to 'ONNX' - Open Neural Network Exchange <https://onnx.ai/>. 
@@ -12,8 +11,8 @@ Description: R Interface to 'ONNX' - Open Neural Network Exchange <https://onnx.
              It defines an extensible computation graph model, as well as definitions
              of built-in operators and standard data types.
 License: MIT License + file LICENSE
-URL: https://github.com/terrytangyuan/onnx-r
-BugReports: https://github.com/terrytangyuan/onnx-r
+URL: https://github.com/onnx/onnx-r
+BugReports: https://github.com/onnx/onnx-r
 Encoding: UTF-8
 LazyData: true
 Depends:
