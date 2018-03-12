@@ -8,9 +8,9 @@ knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
-# R Interface to ONNX
 
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/onnx)](https://cran.r-project.org/package=onnx)
+<p align="left"><img width="60%" src="vignettes/imgs/ONNX_logo_main.png"/><img width="20%" src="vignettes/imgs/Rlogo.png"/></p>
+
 
 ## Overview
 

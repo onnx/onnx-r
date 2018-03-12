@@ -91,36 +91,36 @@
 <p>First, install ONNX TensorFlow backend by following the instructions <a href="https://github.com/onnx/onnx-tensorflow">here</a>.</p>
 <p>Then download and extract the tarball of <a href="https://github.com/onnx/models/tree/master/resnet50">ResNet-50</a>.</p>
 <p>Next, we load the necessary R and Python libraries (via <a href="https://rstudio.github.io/reticulate/">reticulate</a>):</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(onnx)
-<span class="kw">library</span>(reticulate)
-np &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/reticulate/topics/import">import</a></span>(<span class="st">"numpy"</span>)
-backend &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/reticulate/topics/import">import</a></span>(<span class="st">"onnx_tf.backend"</span>)</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(onnx)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">library</span>(reticulate)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">np &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/reticulate/topics/import">import</a></span>(<span class="st">"numpy"</span>)</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">backend &lt;-<span class="st"> </span><span class="kw"><a href="http://www.rdocumentation.org/packages/reticulate/topics/import">import</a></span>(<span class="st">"onnx_tf.backend"</span>)</a></code></pre></div>
 <p>We can then use the loaded numpy Python library to define a helper function to load testing sample from numpy serialized archive.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">load_npz_samples &lt;-<span class="st"> </span><span class="cf">function</span>(npz_path) {
-  sample &lt;-<span class="st"> </span>np<span class="op">$</span><span class="kw">load</span>(<span class="kw">normalizePath</span>(npz_path), <span class="dt">encoding =</span> <span class="st">'bytes'</span>)
-  <span class="kw">list</span>(
-    <span class="dt">inputs =</span> sample<span class="op">$</span><span class="kw">items</span>()[[<span class="dv">0</span>]][[<span class="dv">1</span>]][[<span class="dv">0</span>]],
-    <span class="dt">outputs =</span> sample<span class="op">$</span><span class="kw">items</span>()[[<span class="dv">1</span>]][[<span class="dv">1</span>]]
-  )
-}</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">load_npz_samples &lt;-<span class="st"> </span><span class="cf">function</span>(npz_path) {</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">  sample &lt;-<span class="st"> </span>np<span class="op">$</span><span class="kw">load</span>(<span class="kw">normalizePath</span>(npz_path), <span class="dt">encoding =</span> <span class="st">'bytes'</span>)</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">  <span class="kw">list</span>(</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">    <span class="dt">inputs =</span> sample<span class="op">$</span><span class="kw">items</span>()[[<span class="dv">0</span>]][[<span class="dv">1</span>]][[<span class="dv">0</span>]],</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">    <span class="dt">outputs =</span> sample<span class="op">$</span><span class="kw">items</span>()[[<span class="dv">1</span>]][[<span class="dv">1</span>]]</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">  )</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">}</a></code></pre></div>
 <p>Finally, we can load the ONNX model and the testing samples, and then run the model using ONNX TensorFlow backend:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Specify paths to ONNX model and testing samples</span>
-onnx_model_dir &lt;-<span class="st"> "~/Downloads/resnet50"</span>
-model_pb_path &lt;-<span class="st"> </span><span class="kw">file.path</span>(onnx_model_dir, <span class="st">"model.onnx"</span>)
-npz_path &lt;-<span class="st"> </span><span class="kw">file.path</span>(onnx_model_dir, <span class="st">"test_data_0.npz"</span>)
-
-<span class="co"># Load ONNX model</span>
-model &lt;-<span class="st"> </span><span class="kw"><a href="../reference/load_from_file.html">load_from_file</a></span>(model_pb_path)
-
-<span class="co"># Load testing sample from numpy serialized archive</span>
-samples &lt;-<span class="st"> </span><span class="kw">load_npz_samples</span>(npz_path)
-inputs &lt;-<span class="st"> </span>samples<span class="op">$</span>inputs
-expected_outputs &lt;-<span class="st"> </span>samples<span class="op">$</span>outputs
-
-<span class="co"># Run the model with an onnx backend</span>
-actual_outputs &lt;-<span class="st"> </span>backend<span class="op">$</span><span class="kw">run_model</span>(model, inputs)</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># Specify paths to ONNX model and testing samples</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">onnx_model_dir &lt;-<span class="st"> "~/Downloads/resnet50"</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3">model_pb_path &lt;-<span class="st"> </span><span class="kw">file.path</span>(onnx_model_dir, <span class="st">"model.onnx"</span>)</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">npz_path &lt;-<span class="st"> </span><span class="kw">file.path</span>(onnx_model_dir, <span class="st">"test_data_0.npz"</span>)</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co"># Load ONNX model</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">model &lt;-<span class="st"> </span><span class="kw"><a href="../reference/load_from_file.html">load_from_file</a></span>(model_pb_path)</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co"># Load testing sample from numpy serialized archive</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">samples &lt;-<span class="st"> </span><span class="kw">load_npz_samples</span>(npz_path)</a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">inputs &lt;-<span class="st"> </span>samples<span class="op">$</span>inputs</a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">expected_outputs &lt;-<span class="st"> </span>samples<span class="op">$</span>outputs</a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co"># Run the model with an onnx backend</span></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15">actual_outputs &lt;-<span class="st"> </span>backend<span class="op">$</span><span class="kw">run_model</span>(model, inputs)</a></code></pre></div>
 <p>We can also use numpy to verify the result:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">np<span class="op">$</span>testing<span class="op">$</span><span class="kw">assert_almost_equal</span>(expected_outputs, actual_outputs, <span class="dt">decimal =</span> <span class="dv">6</span>)</code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">np<span class="op">$</span>testing<span class="op">$</span><span class="kw">assert_almost_equal</span>(expected_outputs, actual_outputs, <span class="dt">decimal =</span> <span class="dv">6</span>)</a></code></pre></div>
 <p>That’s it! Isn’t it easy? Next you can go ahead and try out different ONNX models as well as different ONNX backends, e.g. PyTorch, MXNet, Caffe2, CNTK, Chainer, etc.</p>
 </div>
 </div>
