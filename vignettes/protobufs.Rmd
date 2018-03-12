@@ -22,7 +22,7 @@ In this short tutorial, we'll make use of the following functions for the exampl
 * `check()` method that can check whether a protobuf in a particular type is valid.
 * `print_readable()` method that can print out the human-readable representation of the proto object.
 
-For detailed definitions of each type of ONNX protobufs, please checkout [ONNX intermediate representation spec](https://github.com/onnx/onnx/blob/master/docs/IR.md).
+For detailed definitions of each type of ONNX protobufs, please checkout [ONNX intermediate representation spec](https://github.com/onnx/onnx/blob/master/docs/IR.md). A list of available operators, e.g. `FC` or `Relu` used in the following examples to define the nodes, can be found [here](https://github.com/onnx/onnx/blob/master/docs/Operators.md).
 
 ## Create Node Protobuf
 
