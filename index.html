@@ -314,8 +314,8 @@ $(document).ready(function () {
 <p>This is the R Interface to <a href="https://onnx.ai/">Open Neural Network Exchange (ONNX)</a> - a standard format for models built using different frameworks (e.g. TensorFlow, MXNet, PyTorch, CNTK, etc.). It defines an extensible computation graph model, as well as definitions of built-in operators and standard data types. Models trained in one framework can be easily transferred to another framework for inference. This open source format enables the interoperability between different frameworks and streamlining the path from research to production will increase the speed of innovation in the AI community.</p>
 <p>Deep learning with neural networks is accomplished through computation over dataflow graphs. Some frameworks (such as CNTK, Caffe2, Theano, and TensorFlow) make use of static graphs, while others (such as PyTorch and Chainer) use dynamic graphs. However, they all provide interfaces that make it simple for developers to construct computation graphs and runtimes that process the graphs in an optimized way. The graph serves as an Intermediate Representation (IR) that captures the specific intent of the developer’s source code, and is conducive for optimization and translation to run on specific devices (CPU, GPU, FPGA, etc.).</p>
 </div>
-<div id="why-a-common-intermediate-representation" class="section level2">
-<h2>Why a common Intermediate Representation?</h2>
+<div id="why-onnx" class="section level2">
+<h2>Why ONNX?</h2>
 <p>Today, each framework has its own proprietary representation of the graph, though they all provide similar capabilities – meaning each framework is a siloed stack of API, graph, and runtime. Furthermore, frameworks are typically optimized for some characteristic, such as fast training, supporting complicated network architectures, inference on mobile devices, etc. It’s up to the developer to select a framework that is optimized for one of these characteristics. Additionally, these optimizations may be better suited for particular stages of development. This leads to significant delays between research and production due to the necessity of conversion.</p>
 <p>With the goal of democratizing AI, we envision empowering developers to select the framework that works best for their project, at any stage of development or deployment. The ONNX format is a common IR to help establish this powerful ecosystem. By providing a common representation of the computation graph, ONNX helps developers choose the right framework for their task, allows authors to focus on innovative enhancements, and enables hardware vendors to streamline optimizations for their platforms.</p>
 <p>For more details on the technical design of ONNX spec, please visit <a href="https://github.com/onnx/onnx#learn-about-onnx-spec">here</a>.</p>
@@ -335,6 +335,14 @@ devtools::install_github(&quot;onnx/onnx-r&quot;)</code></pre>
 <li><a href="articles/protobufs.html">Creating ONNX Protobuf</a></li>
 <li><a href="articles/onnx_model_zoo.html">Load and Run an ONNX Model</a></li>
 </ul>
+</div>
+<div id="discuss" class="section level2">
+<h2>Discuss</h2>
+<p>We encourage you to open <a href="https://github.com/onnx/onnx/issues">Issues</a>, or use Gitter for more real-time discussion: <a href="https://gitter.im/onnx/Lobby?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5OSIgaGVpZ2h0PSIyMCI+PGxpbmVhckdyYWRpZW50IGlkPSJiIiB4Mj0iMCIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2JiYiIgc3RvcC1vcGFjaXR5PSIuMSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1vcGFjaXR5PSIuMSIvPjwvbGluZWFyR3JhZGllbnQ+PG1hc2sgaWQ9ImEiPjxyZWN0IHdpZHRoPSI5OSIgaGVpZ2h0PSIyMCIgcng9IjMiIGZpbGw9IiNmZmYiLz48L21hc2s+PGcgbWFzaz0idXJsKCNhKSI+PHBhdGggZmlsbD0iIzU1NSIgZD0iTTAgMGg0MHYyMEgweiIvPjxwYXRoIGZpbGw9IiM0NkJDOTkiIGQ9Ik00MCAwaDU5djIwSDQweiIvPjxwYXRoIGZpbGw9InVybCgjYikiIGQ9Ik0wIDBoOTl2MjBIMHoiLz48L2c+PGcgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkRlamFWdSBTYW5zLFZlcmRhbmEsR2VuZXZhLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiPjx0ZXh0IHg9IjIwIiB5PSIxNSIgZmlsbD0iIzAxMDEwMSIgZmlsbC1vcGFjaXR5PSIuMyI+Z2l0dGVyPC90ZXh0Pjx0ZXh0IHg9IjIwIiB5PSIxNCI+Z2l0dGVyPC90ZXh0Pjx0ZXh0IHg9IjY4LjUiIHk9IjE1IiBmaWxsPSIjMDEwMTAxIiBmaWxsLW9wYWNpdHk9Ii4zIj5qb2luIGNoYXQ8L3RleHQ+PHRleHQgeD0iNjguNSIgeT0iMTQiPmpvaW4gY2hhdDwvdGV4dD48L2c+PC9zdmc+" alt="Join the chat at https://gitter.im/onnx/Lobby" /></a></p>
+</div>
+<div id="follow-us" class="section level2">
+<h2>Follow Us</h2>
+<p>Stay up to date with the latest ONNX news. [<a href="https://www.facebook.com/onnxai/">Facebook</a>] [<a href="https://twitter.com/onnxai">Twitter</a>].</p>
 </div>
 
 
