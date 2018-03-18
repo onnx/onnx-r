@@ -1,0 +1,18 @@
+language: r
+
+dist: trusty
+sudo: false
+
+cache:
+  packages: true
+  directories:
+    - $HOME/.cache/pip
+
+addons:
+  apt:
+    packages:
+      - python2.7
+      - python-numpy
+
+before_script:
+  - pip install --upgrade --ignore-installed --user travis onnx
