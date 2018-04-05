@@ -35,7 +35,7 @@ Next, we load the necessary R and Python libraries (via [reticulate](https://rst
 ```{r eval=FALSE}
 library(onnx)
 library(reticulate)
-np <- import("numpy")
+np <- import("numpy", convert = FALSE)
 backend <- import("onnx_tf.backend")
 ```
 
