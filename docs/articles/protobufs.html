@@ -93,163 +93,163 @@
 <h2 class="hasAnchor">
 <a href="#create-node-protobuf" class="anchor"></a>Create Node Protobuf</h2>
 <p>Define a node protobuf and check whether it’s valid:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(onnx)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">node_def &lt;-<span class="st"> </span><span class="kw"><a href="../reference/maker.html">make_node</a></span>(<span class="st">"Relu"</span>, <span class="kw">list</span>(<span class="st">"X"</span>), <span class="kw">list</span>(<span class="st">"Y"</span>))</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="kw"><a href="../reference/checker.html">check</a></span>(node_def)</a></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>node_def</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">input<span class="op">:</span><span class="st"> "X"</span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">output<span class="op">:</span><span class="st"> "Y"</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">op_type<span class="op">:</span><span class="st"> "Relu"</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(onnx)
+
+node_def &lt;-<span class="st"> </span><span class="kw"><a href="../reference/maker.html">make_node</a></span>(<span class="st">"Relu"</span>, <span class="kw">list</span>(<span class="st">"X"</span>), <span class="kw">list</span>(<span class="st">"Y"</span>))
+<span class="kw"><a href="../reference/checker.html">check</a></span>(node_def)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="op">&gt;</span><span class="st"> </span>node_def
+input<span class="op">:</span><span class="st"> "X"</span>
+output<span class="op">:</span><span class="st"> "Y"</span>
+op_type<span class="op">:</span><span class="st"> "Relu"</span></code></pre></div>
 </div>
 <div id="create-attribute-protobuf" class="section level2">
 <h2 class="hasAnchor">
 <a href="#create-attribute-protobuf" class="anchor"></a>Create Attribute Protobuf</h2>
 <p>Define an attribute protobuf and check whether it’s valid:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">attr_def &lt;-<span class="st"> </span><span class="kw"><a href="../reference/maker.html">make_attribute</a></span>(<span class="st">"this_is_an_int"</span>, 123L)</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="../reference/checker.html">check</a></span>(attr_def)</a></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>attr_def</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">name<span class="op">:</span><span class="st"> "this_is_an_int"</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">i<span class="op">:</span><span class="st"> </span><span class="dv">123</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">type<span class="op">:</span><span class="st"> </span>INT</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">attr_def &lt;-<span class="st"> </span><span class="kw"><a href="../reference/maker.html">make_attribute</a></span>(<span class="st">"this_is_an_int"</span>, 123L)
+<span class="kw"><a href="../reference/checker.html">check</a></span>(attr_def)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="op">&gt;</span><span class="st"> </span>attr_def
+name<span class="op">:</span><span class="st"> "this_is_an_int"</span>
+i<span class="op">:</span><span class="st"> </span><span class="dv">123</span>
+type<span class="op">:</span><span class="st"> </span>INT</code></pre></div>
 </div>
 <div id="create-graph-protobuf" class="section level2">
 <h2 class="hasAnchor">
 <a href="#create-graph-protobuf" class="anchor"></a>Create Graph Protobuf</h2>
 <p>Define a graph protobuf and check whether it’s valid:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">graph_def &lt;-<span class="st"> </span><span class="kw"><a href="../reference/maker.html">make_graph</a></span>(</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">  <span class="dt">nodes =</span> <span class="kw">list</span>(</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3">    <span class="kw"><a href="../reference/maker.html">make_node</a></span>(<span class="st">"FC"</span>, <span class="kw">list</span>(<span class="st">"X"</span>, <span class="st">"W1"</span>, <span class="st">"B1"</span>), <span class="kw">list</span>(<span class="st">"H1"</span>)),</a>
-<a class="sourceLine" id="cb5-4" data-line-number="4">    <span class="kw"><a href="../reference/maker.html">make_node</a></span>(<span class="st">"Relu"</span>, <span class="kw">list</span>(<span class="st">"H1"</span>), <span class="kw">list</span>(<span class="st">"R1"</span>)),</a>
-<a class="sourceLine" id="cb5-5" data-line-number="5">    <span class="kw"><a href="../reference/maker.html">make_node</a></span>(<span class="st">"FC"</span>, <span class="kw">list</span>(<span class="st">"R1"</span>, <span class="st">"W2"</span>, <span class="st">"B2"</span>), <span class="kw">list</span>(<span class="st">"Y"</span>))</a>
-<a class="sourceLine" id="cb5-6" data-line-number="6">  ),</a>
-<a class="sourceLine" id="cb5-7" data-line-number="7">  <span class="dt">name =</span> <span class="st">"MLP"</span>,</a>
-<a class="sourceLine" id="cb5-8" data-line-number="8">  <span class="dt">inputs =</span> <span class="kw">list</span>(</a>
-<a class="sourceLine" id="cb5-9" data-line-number="9">    <span class="kw"><a href="../reference/maker.html">make_tensor_value_info</a></span>(<span class="st">'X'</span> , onnx<span class="op">$</span>TensorProto<span class="op">$</span>FLOAT, <span class="kw">list</span>(1L)),</a>
-<a class="sourceLine" id="cb5-10" data-line-number="10">    <span class="kw"><a href="../reference/maker.html">make_tensor_value_info</a></span>(<span class="st">'W1'</span>, onnx<span class="op">$</span>TensorProto<span class="op">$</span>FLOAT, <span class="kw">list</span>(1L)),</a>
-<a class="sourceLine" id="cb5-11" data-line-number="11">    <span class="kw"><a href="../reference/maker.html">make_tensor_value_info</a></span>(<span class="st">'B1'</span>, onnx<span class="op">$</span>TensorProto<span class="op">$</span>FLOAT, <span class="kw">list</span>(1L)),</a>
-<a class="sourceLine" id="cb5-12" data-line-number="12">    <span class="kw"><a href="../reference/maker.html">make_tensor_value_info</a></span>(<span class="st">'W2'</span>, onnx<span class="op">$</span>TensorProto<span class="op">$</span>FLOAT, <span class="kw">list</span>(1L)),</a>
-<a class="sourceLine" id="cb5-13" data-line-number="13">    <span class="kw"><a href="../reference/maker.html">make_tensor_value_info</a></span>(<span class="st">'B2'</span>, onnx<span class="op">$</span>TensorProto<span class="op">$</span>FLOAT, <span class="kw">list</span>(1L))</a>
-<a class="sourceLine" id="cb5-14" data-line-number="14">  ),</a>
-<a class="sourceLine" id="cb5-15" data-line-number="15">  <span class="dt">outputs =</span> <span class="kw">list</span>(</a>
-<a class="sourceLine" id="cb5-16" data-line-number="16">    <span class="kw"><a href="../reference/maker.html">make_tensor_value_info</a></span>(<span class="st">'Y'</span>, onnx<span class="op">$</span>TensorProto<span class="op">$</span>FLOAT, <span class="kw">list</span>(1L))</a>
-<a class="sourceLine" id="cb5-17" data-line-number="17">  )</a>
-<a class="sourceLine" id="cb5-18" data-line-number="18">)</a>
-<a class="sourceLine" id="cb5-19" data-line-number="19"><span class="kw"><a href="../reference/checker.html">check</a></span>(graph_def)</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">graph_def &lt;-<span class="st"> </span><span class="kw"><a href="../reference/maker.html">make_graph</a></span>(
+  <span class="dt">nodes =</span> <span class="kw">list</span>(
+    <span class="kw"><a href="../reference/maker.html">make_node</a></span>(<span class="st">"FC"</span>, <span class="kw">list</span>(<span class="st">"X"</span>, <span class="st">"W1"</span>, <span class="st">"B1"</span>), <span class="kw">list</span>(<span class="st">"H1"</span>)),
+    <span class="kw"><a href="../reference/maker.html">make_node</a></span>(<span class="st">"Relu"</span>, <span class="kw">list</span>(<span class="st">"H1"</span>), <span class="kw">list</span>(<span class="st">"R1"</span>)),
+    <span class="kw"><a href="../reference/maker.html">make_node</a></span>(<span class="st">"FC"</span>, <span class="kw">list</span>(<span class="st">"R1"</span>, <span class="st">"W2"</span>, <span class="st">"B2"</span>), <span class="kw">list</span>(<span class="st">"Y"</span>))
+  ),
+  <span class="dt">name =</span> <span class="st">"MLP"</span>,
+  <span class="dt">inputs =</span> <span class="kw">list</span>(
+    <span class="kw"><a href="../reference/maker.html">make_tensor_value_info</a></span>(<span class="st">'X'</span> , onnx<span class="op">$</span>TensorProto<span class="op">$</span>FLOAT, <span class="kw">list</span>(1L)),
+    <span class="kw"><a href="../reference/maker.html">make_tensor_value_info</a></span>(<span class="st">'W1'</span>, onnx<span class="op">$</span>TensorProto<span class="op">$</span>FLOAT, <span class="kw">list</span>(1L)),
+    <span class="kw"><a href="../reference/maker.html">make_tensor_value_info</a></span>(<span class="st">'B1'</span>, onnx<span class="op">$</span>TensorProto<span class="op">$</span>FLOAT, <span class="kw">list</span>(1L)),
+    <span class="kw"><a href="../reference/maker.html">make_tensor_value_info</a></span>(<span class="st">'W2'</span>, onnx<span class="op">$</span>TensorProto<span class="op">$</span>FLOAT, <span class="kw">list</span>(1L)),
+    <span class="kw"><a href="../reference/maker.html">make_tensor_value_info</a></span>(<span class="st">'B2'</span>, onnx<span class="op">$</span>TensorProto<span class="op">$</span>FLOAT, <span class="kw">list</span>(1L))
+  ),
+  <span class="dt">outputs =</span> <span class="kw">list</span>(
+    <span class="kw"><a href="../reference/maker.html">make_tensor_value_info</a></span>(<span class="st">'Y'</span>, onnx<span class="op">$</span>TensorProto<span class="op">$</span>FLOAT, <span class="kw">list</span>(1L))
+  )
+)
+<span class="kw"><a href="../reference/checker.html">check</a></span>(graph_def)</code></pre></div>
 <p>You can use <code><a href="../reference/print_readable.html">print_readable()</a></code> to print out the human-readable representation of the graph definition:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw"><a href="../reference/print_readable.html">print_readable</a></span>(graph_def)</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">graph <span class="kw">MLP</span> (</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3">  %X[FLOAT, <span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb6-4" data-line-number="4">  %W1[FLOAT, <span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb6-5" data-line-number="5">  %B1[FLOAT, <span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb6-6" data-line-number="6">  %W2[FLOAT, <span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb6-7" data-line-number="7">  %B2[FLOAT, <span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb6-8" data-line-number="8">) {</a>
-<a class="sourceLine" id="cb6-9" data-line-number="9">  <span class="op">%H1 = FC(%</span>X, <span class="op">%W1, %</span>B1<span class="er">)</span></a>
-<a class="sourceLine" id="cb6-10" data-line-number="10">  <span class="op">%R1 = Relu(%</span>H1<span class="er">)</span></a>
-<a class="sourceLine" id="cb6-11" data-line-number="11">  <span class="op">%Y = FC(%</span>R1, <span class="op">%W2, %</span>B2<span class="er">)</span></a>
-<a class="sourceLine" id="cb6-12" data-line-number="12">  return %Y</a>
-<a class="sourceLine" id="cb6-13" data-line-number="13">}</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="op">&gt;</span><span class="st"> </span><span class="kw"><a href="../reference/print_readable.html">print_readable</a></span>(graph_def)
+graph <span class="kw">MLP</span> (
+  %X[FLOAT, <span class="dv">1</span>]
+  %W1[FLOAT, <span class="dv">1</span>]
+  %B1[FLOAT, <span class="dv">1</span>]
+  %W2[FLOAT, <span class="dv">1</span>]
+  %B2[FLOAT, <span class="dv">1</span>]
+) {
+  <span class="op">%H1 = FC(%</span>X, <span class="op">%W1, %</span>B1<span class="er">)</span>
+  <span class="op">%R1 = Relu(%</span>H1<span class="er">)</span>
+  <span class="op">%Y = FC(%</span>R1, <span class="op">%W2, %</span>B2<span class="er">)</span>
+  return %Y
+}</code></pre></div>
 <p>Or simply print it out to see the detailed graph definition containing nodes, inputs, and outputs:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>graph_def</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">node {</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">  input<span class="op">:</span><span class="st"> "X"</span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4">  input<span class="op">:</span><span class="st"> "W1"</span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5">  input<span class="op">:</span><span class="st"> "B1"</span></a>
-<a class="sourceLine" id="cb7-6" data-line-number="6">  output<span class="op">:</span><span class="st"> "H1"</span></a>
-<a class="sourceLine" id="cb7-7" data-line-number="7">  op_type<span class="op">:</span><span class="st"> "FC"</span></a>
-<a class="sourceLine" id="cb7-8" data-line-number="8">}</a>
-<a class="sourceLine" id="cb7-9" data-line-number="9">node {</a>
-<a class="sourceLine" id="cb7-10" data-line-number="10">  input<span class="op">:</span><span class="st"> "H1"</span></a>
-<a class="sourceLine" id="cb7-11" data-line-number="11">  output<span class="op">:</span><span class="st"> "R1"</span></a>
-<a class="sourceLine" id="cb7-12" data-line-number="12">  op_type<span class="op">:</span><span class="st"> "Relu"</span></a>
-<a class="sourceLine" id="cb7-13" data-line-number="13">}</a>
-<a class="sourceLine" id="cb7-14" data-line-number="14">node {</a>
-<a class="sourceLine" id="cb7-15" data-line-number="15">  input<span class="op">:</span><span class="st"> "R1"</span></a>
-<a class="sourceLine" id="cb7-16" data-line-number="16">  input<span class="op">:</span><span class="st"> "W2"</span></a>
-<a class="sourceLine" id="cb7-17" data-line-number="17">  input<span class="op">:</span><span class="st"> "B2"</span></a>
-<a class="sourceLine" id="cb7-18" data-line-number="18">  output<span class="op">:</span><span class="st"> "Y"</span></a>
-<a class="sourceLine" id="cb7-19" data-line-number="19">  op_type<span class="op">:</span><span class="st"> "FC"</span></a>
-<a class="sourceLine" id="cb7-20" data-line-number="20">}</a>
-<a class="sourceLine" id="cb7-21" data-line-number="21">name<span class="op">:</span><span class="st"> "MLP"</span></a>
-<a class="sourceLine" id="cb7-22" data-line-number="22">input {</a>
-<a class="sourceLine" id="cb7-23" data-line-number="23">  name<span class="op">:</span><span class="st"> "X"</span></a>
-<a class="sourceLine" id="cb7-24" data-line-number="24">  type {</a>
-<a class="sourceLine" id="cb7-25" data-line-number="25">    tensor_type {</a>
-<a class="sourceLine" id="cb7-26" data-line-number="26">      elem_type<span class="op">:</span><span class="st"> </span>FLOAT</a>
-<a class="sourceLine" id="cb7-27" data-line-number="27">      shape {</a>
-<a class="sourceLine" id="cb7-28" data-line-number="28">        dim {</a>
-<a class="sourceLine" id="cb7-29" data-line-number="29">          dim_value<span class="op">:</span><span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb7-30" data-line-number="30">        }</a>
-<a class="sourceLine" id="cb7-31" data-line-number="31">      }</a>
-<a class="sourceLine" id="cb7-32" data-line-number="32">    }</a>
-<a class="sourceLine" id="cb7-33" data-line-number="33">  }</a>
-<a class="sourceLine" id="cb7-34" data-line-number="34">}</a>
-<a class="sourceLine" id="cb7-35" data-line-number="35">input {</a>
-<a class="sourceLine" id="cb7-36" data-line-number="36">  name<span class="op">:</span><span class="st"> "W1"</span></a>
-<a class="sourceLine" id="cb7-37" data-line-number="37">  type {</a>
-<a class="sourceLine" id="cb7-38" data-line-number="38">    tensor_type {</a>
-<a class="sourceLine" id="cb7-39" data-line-number="39">      elem_type<span class="op">:</span><span class="st"> </span>FLOAT</a>
-<a class="sourceLine" id="cb7-40" data-line-number="40">      shape {</a>
-<a class="sourceLine" id="cb7-41" data-line-number="41">        dim {</a>
-<a class="sourceLine" id="cb7-42" data-line-number="42">          dim_value<span class="op">:</span><span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb7-43" data-line-number="43">        }</a>
-<a class="sourceLine" id="cb7-44" data-line-number="44">      }</a>
-<a class="sourceLine" id="cb7-45" data-line-number="45">    }</a>
-<a class="sourceLine" id="cb7-46" data-line-number="46">  }</a>
-<a class="sourceLine" id="cb7-47" data-line-number="47">}</a>
-<a class="sourceLine" id="cb7-48" data-line-number="48">input {</a>
-<a class="sourceLine" id="cb7-49" data-line-number="49">  name<span class="op">:</span><span class="st"> "B1"</span></a>
-<a class="sourceLine" id="cb7-50" data-line-number="50">  type {</a>
-<a class="sourceLine" id="cb7-51" data-line-number="51">    tensor_type {</a>
-<a class="sourceLine" id="cb7-52" data-line-number="52">      elem_type<span class="op">:</span><span class="st"> </span>FLOAT</a>
-<a class="sourceLine" id="cb7-53" data-line-number="53">      shape {</a>
-<a class="sourceLine" id="cb7-54" data-line-number="54">        dim {</a>
-<a class="sourceLine" id="cb7-55" data-line-number="55">          dim_value<span class="op">:</span><span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb7-56" data-line-number="56">        }</a>
-<a class="sourceLine" id="cb7-57" data-line-number="57">      }</a>
-<a class="sourceLine" id="cb7-58" data-line-number="58">    }</a>
-<a class="sourceLine" id="cb7-59" data-line-number="59">  }</a>
-<a class="sourceLine" id="cb7-60" data-line-number="60">}</a>
-<a class="sourceLine" id="cb7-61" data-line-number="61">input {</a>
-<a class="sourceLine" id="cb7-62" data-line-number="62">  name<span class="op">:</span><span class="st"> "W2"</span></a>
-<a class="sourceLine" id="cb7-63" data-line-number="63">  type {</a>
-<a class="sourceLine" id="cb7-64" data-line-number="64">    tensor_type {</a>
-<a class="sourceLine" id="cb7-65" data-line-number="65">      elem_type<span class="op">:</span><span class="st"> </span>FLOAT</a>
-<a class="sourceLine" id="cb7-66" data-line-number="66">      shape {</a>
-<a class="sourceLine" id="cb7-67" data-line-number="67">        dim {</a>
-<a class="sourceLine" id="cb7-68" data-line-number="68">          dim_value<span class="op">:</span><span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb7-69" data-line-number="69">        }</a>
-<a class="sourceLine" id="cb7-70" data-line-number="70">      }</a>
-<a class="sourceLine" id="cb7-71" data-line-number="71">    }</a>
-<a class="sourceLine" id="cb7-72" data-line-number="72">  }</a>
-<a class="sourceLine" id="cb7-73" data-line-number="73">}</a>
-<a class="sourceLine" id="cb7-74" data-line-number="74">input {</a>
-<a class="sourceLine" id="cb7-75" data-line-number="75">  name<span class="op">:</span><span class="st"> "B2"</span></a>
-<a class="sourceLine" id="cb7-76" data-line-number="76">  type {</a>
-<a class="sourceLine" id="cb7-77" data-line-number="77">    tensor_type {</a>
-<a class="sourceLine" id="cb7-78" data-line-number="78">      elem_type<span class="op">:</span><span class="st"> </span>FLOAT</a>
-<a class="sourceLine" id="cb7-79" data-line-number="79">      shape {</a>
-<a class="sourceLine" id="cb7-80" data-line-number="80">        dim {</a>
-<a class="sourceLine" id="cb7-81" data-line-number="81">          dim_value<span class="op">:</span><span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb7-82" data-line-number="82">        }</a>
-<a class="sourceLine" id="cb7-83" data-line-number="83">      }</a>
-<a class="sourceLine" id="cb7-84" data-line-number="84">    }</a>
-<a class="sourceLine" id="cb7-85" data-line-number="85">  }</a>
-<a class="sourceLine" id="cb7-86" data-line-number="86">}</a>
-<a class="sourceLine" id="cb7-87" data-line-number="87">output {</a>
-<a class="sourceLine" id="cb7-88" data-line-number="88">  name<span class="op">:</span><span class="st"> "Y"</span></a>
-<a class="sourceLine" id="cb7-89" data-line-number="89">  type {</a>
-<a class="sourceLine" id="cb7-90" data-line-number="90">    tensor_type {</a>
-<a class="sourceLine" id="cb7-91" data-line-number="91">      elem_type<span class="op">:</span><span class="st"> </span>FLOAT</a>
-<a class="sourceLine" id="cb7-92" data-line-number="92">      shape {</a>
-<a class="sourceLine" id="cb7-93" data-line-number="93">        dim {</a>
-<a class="sourceLine" id="cb7-94" data-line-number="94">          dim_value<span class="op">:</span><span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb7-95" data-line-number="95">        }</a>
-<a class="sourceLine" id="cb7-96" data-line-number="96">      }</a>
-<a class="sourceLine" id="cb7-97" data-line-number="97">    }</a>
-<a class="sourceLine" id="cb7-98" data-line-number="98">  }</a>
-<a class="sourceLine" id="cb7-99" data-line-number="99">}</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="op">&gt;</span><span class="st"> </span>graph_def
+node {
+  input<span class="op">:</span><span class="st"> "X"</span>
+  input<span class="op">:</span><span class="st"> "W1"</span>
+  input<span class="op">:</span><span class="st"> "B1"</span>
+  output<span class="op">:</span><span class="st"> "H1"</span>
+  op_type<span class="op">:</span><span class="st"> "FC"</span>
+}
+node {
+  input<span class="op">:</span><span class="st"> "H1"</span>
+  output<span class="op">:</span><span class="st"> "R1"</span>
+  op_type<span class="op">:</span><span class="st"> "Relu"</span>
+}
+node {
+  input<span class="op">:</span><span class="st"> "R1"</span>
+  input<span class="op">:</span><span class="st"> "W2"</span>
+  input<span class="op">:</span><span class="st"> "B2"</span>
+  output<span class="op">:</span><span class="st"> "Y"</span>
+  op_type<span class="op">:</span><span class="st"> "FC"</span>
+}
+name<span class="op">:</span><span class="st"> "MLP"</span>
+input {
+  name<span class="op">:</span><span class="st"> "X"</span>
+  type {
+    tensor_type {
+      elem_type<span class="op">:</span><span class="st"> </span>FLOAT
+      shape {
+        dim {
+          dim_value<span class="op">:</span><span class="st"> </span><span class="dv">1</span>
+        }
+      }
+    }
+  }
+}
+input {
+  name<span class="op">:</span><span class="st"> "W1"</span>
+  type {
+    tensor_type {
+      elem_type<span class="op">:</span><span class="st"> </span>FLOAT
+      shape {
+        dim {
+          dim_value<span class="op">:</span><span class="st"> </span><span class="dv">1</span>
+        }
+      }
+    }
+  }
+}
+input {
+  name<span class="op">:</span><span class="st"> "B1"</span>
+  type {
+    tensor_type {
+      elem_type<span class="op">:</span><span class="st"> </span>FLOAT
+      shape {
+        dim {
+          dim_value<span class="op">:</span><span class="st"> </span><span class="dv">1</span>
+        }
+      }
+    }
+  }
+}
+input {
+  name<span class="op">:</span><span class="st"> "W2"</span>
+  type {
+    tensor_type {
+      elem_type<span class="op">:</span><span class="st"> </span>FLOAT
+      shape {
+        dim {
+          dim_value<span class="op">:</span><span class="st"> </span><span class="dv">1</span>
+        }
+      }
+    }
+  }
+}
+input {
+  name<span class="op">:</span><span class="st"> "B2"</span>
+  type {
+    tensor_type {
+      elem_type<span class="op">:</span><span class="st"> </span>FLOAT
+      shape {
+        dim {
+          dim_value<span class="op">:</span><span class="st"> </span><span class="dv">1</span>
+        }
+      }
+    }
+  }
+}
+output {
+  name<span class="op">:</span><span class="st"> "Y"</span>
+  type {
+    tensor_type {
+      elem_type<span class="op">:</span><span class="st"> </span>FLOAT
+      shape {
+        dim {
+          dim_value<span class="op">:</span><span class="st"> </span><span class="dv">1</span>
+        }
+      }
+    }
+  }
+}</code></pre></div>
 </div>
 </div>
   </div>
