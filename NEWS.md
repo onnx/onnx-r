@@ -1,8 +1,10 @@
-## onnx 0.0.2 (development)
+## onnx 0.0.2
 
+- Updated API documentations and links. 
 - Added tutorial for creating ONNX protobufs.
 - Added tutorial for loading and running an ONNX model.
+- More consistent maker and checker functions.
 
-## onnx 0.0.1 (cran)
+## onnx 0.0.1
 
 - First release which includes basic functionalities of ONNX.

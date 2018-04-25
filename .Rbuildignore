@@ -2,3 +2,8 @@
 ^\.Rproj\.user$
 ^cran-comments\.md$
 tests/testthat/inst/super_resolution.onnx
+^pkgdown$
+^docs$
+index.Rmd
+.travis.yml
+^_pkgdown\.yml$

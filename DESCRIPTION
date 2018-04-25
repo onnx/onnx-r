@@ -1,10 +1,10 @@
 Package: onnx
 Type: Package
 Title: R Interface to 'ONNX'
-Version: 0.0.1.9000
+Version: 0.0.2
 Authors@R: c(
   person("Yuan", "Tang", role = c("aut", "cre"), email = "terrytangyuan@gmail.com", comment = c(ORCID = "0000-0001-5243-233X")),
-  person("ONNX Contributors", role = c("aut", "cph")),
+  person("ONNX Authors", role = c("aut", "cph")),
   person("Facebook, Inc.", role = c("cph")),
   person("Microsoft Corporation", role = c("cph")))
 Description: R Interface to 'ONNX' - Open Neural Network Exchange <https://onnx.ai/>. 
