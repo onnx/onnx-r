@@ -28,7 +28,7 @@ In this tutorial, you'll learn how to use a backend to load and run a ONNX model
 
 First, install ONNX TensorFlow backend by following the instructions [here](https://github.com/onnx/onnx-tensorflow). 
 
-Then download and extract the tarball of [ResNet-50](https://github.com/onnx/models/tree/master/resnet50).
+Then download and extract the tarball of [ResNet-50](https://github.com/onnx/models/tree/master/vision/classification/resnet).
 
 Next, we load the necessary R and Python libraries (via [reticulate](https://rstudio.github.io/reticulate/)):
 

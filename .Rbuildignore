@@ -7,3 +7,5 @@ tests/testthat/inst/super_resolution.onnx
 index.Rmd
 .travis.yml
 ^_pkgdown\.yml$
+^CRAN-RELEASE$
+.github
