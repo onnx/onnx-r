@@ -10,8 +10,7 @@
 \usage{
 make_attribute(key, value, doc_string = NULL)
 
-make_graph(nodes, name, inputs, outputs, initializer = NULL,
-  doc_string = NULL)
+make_graph(nodes, name, inputs, outputs, initializer = NULL, doc_string = NULL)
 
 make_node(op_type, inputs, outputs, name = NULL, doc_string = NULL)
 
@@ -44,7 +43,7 @@ make_tensor_value_info(name, elem_type, shape, doc_string = "")
 
 \item{vals}{The values}
 
-\item{raw}{If this is \code{FALSE``, this function will choose the corresponding proto field to store the values based on}data_type\code{. If raw is}TRUE`, use "raw_data" proto
+\item{raw}{If this is \verb{FALSE``, this function will choose the corresponding proto field to store the values based on }data_type\verb{. If raw is }TRUE`, use "raw_data" proto
 field to store the values, and values should be of type bytes in this case.}
 
 \item{elem_type}{The element type, e.g. \code{onnx$TensorProto$FLOAT}}

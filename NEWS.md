@@ -1,3 +1,8 @@
+## onnx 0.0.3
+
+- Added `rmarkdown` to `suggests`.
+- Fixed CRAN check note on `LazyData`.
+
 ## onnx 0.0.2
 
 - Updated API documentations and links. 

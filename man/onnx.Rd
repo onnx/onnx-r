@@ -3,7 +3,6 @@
 \docType{package}
 \name{onnx}
 \alias{onnx}
-\alias{onnx-package}
 \title{R Interface to ONNX}
 \description{
 R Interface to ONNX

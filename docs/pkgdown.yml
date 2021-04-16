@@ -1,9 +1,8 @@
-pandoc: 1.19.2.1
-pkgdown: 0.1.0.9000
-pkgdown_sha: 17f683717d0a1547f13a08a259b34c58927452d6
+pandoc: 2.11.2
+pkgdown: 1.6.1
+pkgdown_sha: ~
 articles:
-  ONNX_logo_main.png: imgs/ONNX_logo_main.png
-  Rlogo.png: imgs/Rlogo.png
   onnx_model_zoo: onnx_model_zoo.html
   protobufs: protobufs.html
+last_built: 2021-04-16T18:05Z
 

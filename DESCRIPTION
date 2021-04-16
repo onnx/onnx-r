@@ -1,7 +1,7 @@
 Package: onnx
 Type: Package
 Title: R Interface to 'ONNX'
-Version: 0.0.2.9999
+Version: 0.0.3
 Authors@R: c(
   person("Yuan", "Tang", role = c("aut", "cre"), email = "terrytangyuan@gmail.com", comment = c(ORCID = "0000-0001-5243-233X")),
   person("ONNX Authors", role = c("aut", "cph")),
@@ -15,14 +15,14 @@ License: MIT License + file LICENSE
 URL: https://github.com/onnx/onnx-r
 BugReports: https://github.com/onnx/onnx-r/issues
 Encoding: UTF-8
-LazyData: true
 Depends:
     R (>= 3.1)
 Imports:
     reticulate (>= 1.4)
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 6.0.1
+RoxygenNote: 7.0.2
 Suggests:
     testthat,
-    knitr
+    knitr,
+    rmarkdown
 VignetteBuilder: knitr
