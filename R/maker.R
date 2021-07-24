@@ -3,9 +3,6 @@
 #' This includes AttributeProto, GraphProto, NodeProto, TensorProto,
 #' TensorValueInfoProto, etc.
 #' 
-#' @export
-#' @rdname maker
-
 #' @param key The key
 #' @param value The value
 #' @param doc_string The doc_string
