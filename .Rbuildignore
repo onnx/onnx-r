@@ -9,3 +9,4 @@ index.Rmd
 ^_pkgdown\.yml$
 ^CRAN-RELEASE$
 .github
+^\.github$
