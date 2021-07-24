@@ -1,9 +1,3 @@
-context("Test onnx main methods")
-
-source("helper-utils.R")
-
-library(reticulate)
-
 test_succeeds("onnx works", {
   node_def <- make_node("Relu", list("X"), list("Y"))
   expect_true(inherits(node_def, "onnx_pb2.NodeProto"))
